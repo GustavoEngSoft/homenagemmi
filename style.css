@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #f3efff, #faf9ff);
+  overflow-x: hidden;
+}
+
+/* ============================= */
+/* 🔥 TELA INICIAL (NOVO)       */
+/* ============================= */
+
+.start-screen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #6a5bff, #967dff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  z-index: 999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.start-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.start-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.start-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+#start-btn {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #5a3fff;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(255,255,255,0.7);
+  transition: 0.3s;
+}
+
+#start-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px white;
+}
+
+/* Ocultar conteúdo até iniciar */
+.hidden-section {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+.hidden-section.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ============================= */
+/* 🔥 TIMELINE (igual ao anterior) */
+/* ============================= */
+
+.top {
+  text-align: center;
+  padding: 80px 20px;
+  background: #6a5bff;
+  color: white;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.top h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.top p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.timeline {
+  position: relative;
+  width: 80%;
+  margin: 100px auto;
+  padding-left: 60px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(#8b5dff, #5b2dff, #a88cff);
+  box-shadow: 0 0 25px #845cff;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 70px;
+}
+
+.marker {
+  position: absolute;
+  left: -5px;
+  top: 10px;
+  width: 22px;
+  height: 22px;
+  background: #7c5bff;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #7c5bff, 0 0 30px #9c7dff;
+}
+
+.glass {
+  padding: 25px;
+  margin-left: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.glass:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.glass img,
+.glass video {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ========================= */
+/* ☁️ NUVENS ANIMADAS        */
+/* ========================= */
+
+.clouds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1; /* atrás de tudo */
+}
+
+.cloud {
+  position: absolute;
+  background: white;
+  opacity: 0.55;
+  filter: blur(18px);
+  border-radius: 50%;
+  animation: float linear infinite;
+}
+
+/* tamanhos diferentes */
+.c1 { width: 220px; height: 80px; top: 20%; left: -300px; animation-duration: 55s; }
+.c2 { width: 300px; height: 120px; top: 55%; left: -400px; animation-duration: 70s; opacity: 0.45; }
+.c3 { width: 170px; height: 60px; top: 70%; left: -250px; animation-duration: 60s; opacity: 0.50; }
+.c4 { width: 260px; height: 100px; top: 35%; left: -350px; animation-duration: 90s; opacity: 0.35; }
+
+@keyframes float {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(140vw); }
+}
+
+/* timeline deve ficar acima das nuvens */
+.timeline,
+.top {
+  position: relative;
+  z-index: 5;
+}
+
+.start-screen {
+  z-index: 999; /* já está */
+}
+
+
+/* Corações flutuando */
+#heart-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 50; /* bem acima das nuvens e da timeline */
+}
+
+
+.heart {
+  position: absolute;
+  top: -20px;
+  font-size: 20px;
+  color: #ff4b7d;
+  opacity: 0.9;
+  animation: fall linear forwards;
+}
+
+.card {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.65);
+  border-left: 4px solid #b37bff;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  font-style: italic;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
