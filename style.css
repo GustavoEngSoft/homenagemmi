@@ -245,6 +245,20 @@ body {
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
+/* 🔧 Ajuste para vídeos/imagens dentro das caixas */
+.glass {
+  overflow: hidden; /* impede ultrapassar a borda */
+}
+
+.glass video,
+.glass img {
+  width: 100%;
+  height: auto; 
+  max-height: 400px; /* opcional: limite de altura */
+  object-fit: cover; /* ou 'contain' se quiser ver tudo */
+  border-radius: 15px;
+}
+
 
 @keyframes fall {
   0% {
